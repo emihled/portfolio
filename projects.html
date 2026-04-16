@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Work</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+
+    body {
+      background: #0a0a0a;
+      color: white;
+      overflow-x: hidden;
+    }
+
+    .nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      z-index: 10;
+      background: rgba(0,0,0,0.5);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav a {
+      color: white;
+      text-decoration: none;
+      border: 1px solid #555;
+      padding: 8px 16px;
+      border-radius: 20px;
+      transition: 0.3s;
+    }
+
+    .nav a:hover {
+      background: white;
+      color: black;
+    }
+
+    .section {
+      padding: 120px 10%;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 50px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      perspective: 1000px;
+    }
+
+    .card {
+      background: #111;
+      border-radius: 15px;
+      overflow: hidden;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      filter: grayscale(100%);
+      transition: 0.4s;
+      transform: translateZ(30px);
+    }
+
+    .card:hover img {
+      filter: grayscale(0%);
+    }
+
+    .card-content {
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      transform: translateZ(40px);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .card-btn {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid #555;
+      border-radius: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 0.85rem;
+      transition: 0.3s ease;
+    }
+
+    .card-btn:hover {
+      background: white;
+      color: black;
+      transform: translateY(-2px);
+    }
+
+    .card-btn.secondary {
+      border-color: #888;
+      opacity: 0.85;
+    }
+
+    .card-btn.secondary:hover {
+      opacity: 1;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(255,255,255,0.15), transparent 40%);
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 15px;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="nav">
+    <h3>My Work</h3>
+    <a href="index.html">Back</a>
+  </div>
+
+  <div class="section">
+    <h1>Selected Projects</h1>
+
+    <div class="projects">
+
+      <!-- PROJECT ONE -->
+      <div class="card">
+        <img src="https://picsum.photos/500/300?1">
+        <div class="card-content">
+          <h3>E-Commerce (Teamwork)</h3>
+          <p>Unithrift, an application for students to purchase and sell clothing.</p>
+
+          <div class="btn-group">
+            <a href="https://github.com/tentswalokhoza/UniThrift.git" target="_blank" class="card-btn secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT TWO -->
+      <div class="card">
+        <img src="https://picsum.photos/500/300?2">
+        <div class="card-content">
+          <h3>Portfolio Website</h3>
+          <p>Clean & Simple.</p>
+
+          <div class="btn-group">
+            <a href="https://github.com/your-username/portfolio" target="_blank" class="card-btn secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="https://picsum.photos/400/300?2">
+        <div class="card-content">
+          <h3>HR Management System (Teamwork)</h3>
+          <p>Modern HR management solution.</p>
+
+          <div class="btn-group">
+            <a href="https://github.com/MDtechcave/Moderntech_center.git" target="_blank" class="card-btn secondary">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT THREE -->
+      <div class="card">
+        <img src="https://picsum.photos/500/300?3">
+        <div class="card-content">
+          <h3>Design Article</h3>
+          <p>Article on my design and design process.</p>
+
+          <div class="btn-group">
+            <a href="Article editorial_Emihle.pdf" target="_blank" class="card-btn secondary">View Article</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT FOUR -->
+      <div class="card">
+        <img src="https://picsum.photos/500/300?4">
+        <div class="card-content">
+          <h3>Editorial Design</h3>
+          <p>T-shirt print, patterns, colours and typography.</p>
+
+          <div class="btn-group">
+            <a href="Emihle_D_219321388_MARVEL AND DREAMS T-SHIRT DESIGN PRINT.pdf" target="_blank" class="card-btn secondary">View Editorial</a>
+          </div>
+        </div>
+      </div>
+      <div class="card">
+        <img src="https://picsum.photos/400/300?4">
+        <div class="card-content">
+          <h3>Magazine Cover</h3>
+          <p>Magazine layout and typography.</p>
+
+          <div class="btn-group">
+            <a href="Cover No1.pdf" target="_blank" class="card-btn secondary">View Cover</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+    const cards = document.querySelectorAll(".card");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = 1;
+          entry.target.style.transform = "translateY(0)";
+        }
+      });
+    }, { threshold: 0.2 });
+
+    cards.forEach(card => {
+      card.style.opacity = 0;
+      card.style.transform = "translateY(40px)";
+      card.style.transition = "all 0.6s ease";
+      observer.observe(card);
+    });
+
+    cards.forEach(card => {
+      card.addEventListener("mousemove", (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        const centerX = rect.width / 2;
+        const centerY = rect.height / 2;
+
+        const rotateX = (y - centerY) / 10;
+        const rotateY = (centerX - x) / 10;
+
+        card.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        card.style.boxShadow = `${-rotateY * 2}px ${rotateX * 2}px 30px rgba(0,0,0,0.6)`;
+
+        card.style.setProperty("--x", `${x}px`);
+        card.style.setProperty("--y", `${y}px`);
+      });
+
+      card.addEventListener("mouseleave", () => {
+        card.style.transform = "rotateX(0deg) rotateY(0deg)";
+        card.style.boxShadow = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
