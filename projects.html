@@ -17,6 +17,11 @@
       background: #0a0a0a;
       color: white;
       overflow-x: hidden;
+
+      /* ✅ Add this for sticky footer */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     .nav {
@@ -47,6 +52,9 @@
 
     .section {
       padding: 120px 10%;
+
+      /* ✅ Push footer down */
+      flex: 1;
     }
 
     h1 {
@@ -154,6 +162,18 @@
       border-radius: 15px;
       pointer-events: none;
     }
+
+    /* ✅ SAME FOOTER */
+    .footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: #666;
+      padding: 20px;
+      margin-top: auto;
+
+      position: relative;
+      z-index: 2;
+    }
   </style>
 </head>
 
@@ -169,7 +189,6 @@
 
     <div class="projects">
 
-      <!-- PROJECT ONE -->
       <div class="card">
         <img src="https://picsum.photos/500/300?1">
         <div class="card-content">
@@ -182,7 +201,6 @@
         </div>
       </div>
 
-      <!-- PROJECT TWO -->
       <div class="card">
         <img src="https://picsum.photos/500/300?2">
         <div class="card-content">
@@ -207,7 +225,6 @@
         </div>
       </div>
 
-      <!-- PROJECT THREE -->
       <div class="card">
         <img src="https://picsum.photos/500/300?3">
         <div class="card-content">
@@ -220,7 +237,6 @@
         </div>
       </div>
 
-      <!-- PROJECT FOUR -->
       <div class="card">
         <img src="https://picsum.photos/500/300?4">
         <div class="card-content">
@@ -232,6 +248,7 @@
           </div>
         </div>
       </div>
+
       <div class="card">
         <img src="https://picsum.photos/400/300?4">
         <div class="card-content">
@@ -245,6 +262,11 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- ✅ Footer added -->
+  <div class="footer">
+    © 2026 Emihle Dumo — All rights reserved
   </div>
 
   <script>
