@@ -21,6 +21,11 @@
       color: white;
       opacity: 0;
       transition: opacity 0.6s ease;
+
+      /* ✅ Sticky footer setup */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
     }
 
     body.fade-in {
@@ -69,12 +74,16 @@
     .container {
       position: relative;
       z-index: 1;
-      min-height: 100vh;
+
+      /* ✅ Push footer down */
+      flex: 1;
+
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       padding: 20px;
+
       opacity: 0;
       transition: opacity 1s ease;
     }
@@ -168,11 +177,15 @@
       font-size: 1.3rem;
     }
 
+    /* ✅ Footer sticks to bottom */
     .footer {
       text-align: center;
       font-size: 0.8rem;
       color: #666;
       padding: 20px;
+
+      margin-top: auto;
+
       opacity: 0;
       transition: opacity 1s ease;
     }
@@ -221,10 +234,10 @@
           <a href="#" target="_blank">Emihle Dumo</a>
         </div>
       </div>
-
     </div>
   </div>
 
+  <!-- ✅ Footer stays at bottom -->
   <div class="footer" id="footer">
     © 2026 Emihle Dumo — All rights reserved
   </div>
