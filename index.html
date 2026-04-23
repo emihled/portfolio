@@ -90,18 +90,35 @@
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255,255,255,0.15);
+      backdrop-filter: blur(14px);
+      box-shadow: 0 0 40px rgba(0,255,136,0.08);
       border-radius: 20px;
       padding: 40px;
       max-width: 700px;
       width: 100%;
+      animation: float 6s ease-in-out infinite;
     }
 
-    h1 {
+    @keyframes float {
+      0%,100% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .glow-text {
       font-size: 3rem;
       margin-bottom: 10px;
+      background: linear-gradient(90deg, #252726, #6e7375, #586961);
+      background-size: 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glowMove 4s linear infinite;
+    }
+
+    @keyframes glowMove {
+      0% { background-position: 0%; }
+      100% { background-position: 200%; }
     }
 
     h2 {
@@ -131,23 +148,29 @@
       color: white;
       cursor: pointer;
       transition: 0.3s;
+      position: relative;
+      overflow: hidden;
     }
 
     .btn:hover {
-      background: white;
+      background: #00ff88;
       color: black;
+      box-shadow: 0 0 15px #00ff88;
+      transform: translateY(-2px);
     }
 
     .contact-panel {
       margin-top: 25px;
       display: none;
       opacity: 0;
-      transition: 0.5s ease;
+      transform: translateY(10px);
+      transition: all 0.5s ease;
     }
 
     .contact-panel.show {
       display: block;
       opacity: 1;
+      transform: translateY(0);
     }
 
     .contact-item {
@@ -174,18 +197,14 @@
       font-size: 1.3rem;
     }
 
-    /* ✅ Fixed Footer */
     .footer {
       text-align: center;
       font-size: 0.8rem;
       color: #666;
       padding: 20px;
       margin-top: auto;
-
       position: relative;
       z-index: 2;
-
-      opacity: 1;
     }
   </style>
 </head>
@@ -199,17 +218,26 @@
 
   <div class="container" id="mainContent">
     <div class="glass">
-      <h1>Emihle Dumo</h1>
+      <h1 class="glow-text">Emihle Dumo</h1>
       <h2>Entry-level Web Developer</h2>
 
       <p>
-        I’m a junior full stack web developer with a strong interest in front-end and back-end development. I also have experience in digital graphics designing.
+        I build clean, responsive, and user-focused web experiences. 
+        Passionate about both front-end aesthetics and back-end logic, 
+        I enjoy turning ideas into functional, visually engaging products.
       </p>
 
       <div class="buttons">
         <button class="btn" onclick="goToProjects()">View Work</button>
         <button class="btn" onclick="toggleContact()">Contact Me</button>
-        <a href="Emihle_Dumo_CV.pdf" download><button class="btn">Download CV</button></a>
+
+        <a href="Emihle_Dumo_CV.pdf" target="_blank">
+          <button class="btn">View CV</button>
+        </a>
+
+        <a href="Emihle_Dumo_CV.pdf" download>
+          <button class="btn">Download CV</button>
+        </a>
       </div>
 
       <div class="contact-panel" id="contact">
@@ -269,7 +297,6 @@
       });
     }
 
-    // ✅ Original speed restored
     setInterval(draw, 40);
 
     const loadingText = "INITIALIZING SYSTEM...";
@@ -301,7 +328,13 @@
 
     function toggleContact() {
       const panel = document.getElementById("contact");
-      panel.classList.toggle("show");
+
+      if (panel.classList.contains("show")) {
+        panel.classList.remove("show");
+      } else {
+        panel.style.display = "block";
+        setTimeout(() => panel.classList.add("show"), 10);
+      }
     }
 
     function goToProjects() {
